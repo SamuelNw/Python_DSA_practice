@@ -11,8 +11,9 @@ Return the index of value, or -1 if the value
 doesn't exist in the list."""
 
 
-def binary_search(input_array, value):
+def binary_search_iterative(input_array, value):
     """
+        - Handle edge cases of array being empty or being with just one value.
         - Have 2 variables for the start and end indexes, that will change per iteration. 
         - As long as the start index is lesser than or equal to the end index:
             - get the middle index of the [start, end]. 
@@ -22,6 +23,9 @@ def binary_search(input_array, value):
             - if greater, make the end index one lesser than the current middle index and repeat. 
         - If the start index is no longer lower than or equal to the end index, the value is not in the array.
     """
+    if len(input_array) == 0 or (len(input_array) == 1 and not input_array[0] == value):
+        return -1
+
     start_index = 0
     end_index = len(input_array) - 1
 
