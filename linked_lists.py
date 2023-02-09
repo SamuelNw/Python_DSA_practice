@@ -11,14 +11,14 @@
 """
 
 
-#node class
+# node class
 class Node(object):
     def __init__(self, value):
         self.value = value
         self.next = None
 
 
-#linked_list implementation.
+# linked_list implementation.
 class Linked_list(object):
     def __init__(self, head=None):
         self.head = head
@@ -49,14 +49,14 @@ class Linked_list(object):
         node = self.head
         if self.head:
             while node is not None:
-                #print(node.value)
+                # print(node.value)
                 values.append(node.value)
                 node = node.next
             print(values)
         return
 
     def get_position(self, position):
-        #gets an element at a certain position assuming the first position is 1
+        # gets an element at a certain position assuming the first position is 1
         """
             - Use two variables, one for the current node, and another for the count,
             which will be incremented in each iteration, and count will be compared to position such that 
@@ -73,11 +73,11 @@ class Linked_list(object):
                 current_position += 1
             print(current_node.value)
         return None
-        
+
     def insert(self, new_element, position):
-        #if we are inserting the new element at position 1:
+        # if we are inserting the new element at position 1:
         head_pos = self.head
-        if position == 1 : 
+        if position == 1:
             self.head = new_element
             new_element.next = head_pos
             return
@@ -88,7 +88,7 @@ class Linked_list(object):
                 count, will be compared to position, such that when position is equal to count, 
                 make the prev.next point to new element, and the new element's next be equal to the original prev.next
         """
-        #inserting at any other position
+        # inserting at any other position
         count = 1
         current = head_pos
         prev = None
@@ -101,10 +101,9 @@ class Linked_list(object):
                 print("position out of range!")
                 return
 
-        address_to_current = prev.next 
+        address_to_current = prev.next
         prev.next = new_element
-        new_element.next = address_to_current 
-
+        new_element.next = address_to_current
 
     def sum_list(self):
         """
@@ -112,14 +111,14 @@ class Linked_list(object):
             - traverse through the linked_list adding the value for each node onto sum.
         """
         summation = 0
-        if self.head == None : return summation
+        if self.head == None:
+            return summation
         current = self.head
 
         while current != None:
             summation += current.value
             current = current.next
         print(summation)
-
 
     def delete(self, value):
         """
@@ -128,42 +127,40 @@ class Linked_list(object):
                 - if current.next value is equal to the value, set the current.next to 
                 current.next.next
         """
-        if self.head.value == value: 
+        if self.head.value == value:
             self.head = self.head.next
             return
         current = self.head
         while current != None and current.next != None:
             if current.next.value == value:
-                current.next = current.next.next 
-                return                                  #since we are to delete the first element only.
+                current.next = current.next.next
+                return  # since we are to delete the first element only.
             else:
                 current = current.next
 
-    
     def reverse_list(self):
-        #should return the new head of the linked list
-
+        # should return the new head of the linked list
         """
             - Variables needed include - prev (originally null), current (originally head), and 
             in each iteration initiate a next_node value to hold the current.next for that instant. Traverse the
             list while moving each one step forward. Last step will have prev on the new head, so return it.
         """
 
-        #variables
+        # variables
         prev = None
         current = self.head
-        
-        if self.head == None : return None
+
+        if self.head == None:
+            return None
 
         while current != None:
             next_node = current.next
             current.next = prev
             prev = current
             current = next_node
-            
+
         print(f"New head is {prev.value}")
-        
-        
+
 
 # Instantiating nodes.
 node_1 = Node("a")
@@ -199,35 +196,3 @@ l_list.append(node_8)
 l_list.insert(node_13, 3)
 l_list.insert(node_14, 10)
 l_list.insert(node_15, 10)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

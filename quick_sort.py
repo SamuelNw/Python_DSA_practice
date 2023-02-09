@@ -6,23 +6,23 @@ def quick_sort(array):
         and when this is done, pin down that pivot to that position.
         - since the array is now halved, repeat the above process on each half of the initial array.
     """
-    array_length = len(array) 
+    array_length = len(array)
 
     if array_length <= 1:
-        return array 
+        return array
     else:
         pivot = array.pop()
         items_smaller = []
-        items_larger = [] 
+        items_larger = []
 
         for item in array:
             if item < pivot:
-                items_smaller.append(item) 
+                items_smaller.append(item)
             else:
-                items_larger.append(item) 
-    
+                items_larger.append(item)
+
     return quick_sort(items_smaller) + [pivot] + quick_sort(items_larger)
 
 
-array_1 = [15,2,30,7]
+array_1 = [15, 2, 30, 7]
 print(quick_sort(array_1))              # prints [2,7,15,30]

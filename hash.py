@@ -2,6 +2,7 @@
 in a hash table, where keys are calculated
 using the first two letters of the string."""
 
+
 class HashTable(object):
     def __init__(self):
         self.table = [None]*10000
@@ -17,7 +18,7 @@ class HashTable(object):
                 ### In the case of just an array of values:
                 - just append it.
         """
-        
+
         index = self.calculate_hash_value(string)
         if self.table[index] == None:
             self.table[index] = [string]
@@ -33,12 +34,12 @@ class HashTable(object):
                 loop through each element of the array at that point and check for the string.
         """
         index = self.calculate_hash_value(string)
-        if self.table[index] == None: 
+        if self.table[index] == None:
             return -1
         elif self.table[index]:
             for item in self.table[index]:
                 if item == string:
-                    return index 
+                    return index
             return -1
 
     def calculate_hash_value(self, string):
@@ -46,7 +47,8 @@ class HashTable(object):
         hash value from a string."""
         hash_value = int(str(ord(string[0])) + str(ord(string[1])))
         return hash_value
-    
+
+
 # Setup
 hash_table = HashTable()
 
@@ -67,6 +69,3 @@ print(hash_table.lookup('UDACITY'))
 hash_table.store('UDACIOUS')
 # Should be 8568
 print(hash_table.lookup('UDACIOUS'))
-
-
-
