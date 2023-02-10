@@ -45,13 +45,13 @@ class BinaryTree(object):
         values = ""
         while len(stack) != 0:
             current = stack.pop()
-            values += str(current.value)
+            values += str(f" {current.value} ")
             if current.right:
                 stack.append(current.right)
             if current.left:
                 stack.append(current.left)
 
-        answer = "-".join(char for char in values)
+        answer = " ".join(n for n in values.strip().split(" "))
         return answer
 
 
@@ -61,6 +61,7 @@ tree.root.left = Node(2)
 tree.root.right = Node(3)
 tree.root.left.left = Node(4)
 tree.root.left.right = Node(5)
+tree.root.left.right.right = Node(25)
 
 # Test search
 # Should be True
