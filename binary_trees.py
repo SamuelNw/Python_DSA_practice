@@ -42,17 +42,16 @@ class BinaryTree(object):
             target values, just printing the value for each node you visit
         """
         stack = [self.root]
-        values = ""
+        values = []
         while len(stack) != 0:
             current = stack.pop()
-            values += str(f" {current.value} ")
+            values.append(current.value)
             if current.right:
                 stack.append(current.right)
             if current.left:
                 stack.append(current.left)
 
-        answer = " ".join(n for n in values.strip().split(" "))
-        return answer
+        print("-".join(map(str, values)))
 
 
 # Set up tree
@@ -71,4 +70,4 @@ print(tree.search(6))
 
 # Test print_tree
 # Should be 1-2-4-5-3
-print(tree.print_tree())
+tree.print_tree()
