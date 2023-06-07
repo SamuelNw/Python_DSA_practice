@@ -1,10 +1,10 @@
 """
     **NOTES**
-    - A Linked list is a linear collection of data elements whose order is not determined by the physical placements 
+    - A Linked list is a linear collection of data elements whose order is not determined by the physical placements
     of the elements in memory, rather each element has an attribute that points to the next element.
     - In comparison to lists, while lists have an advantage of lesser complexity in accessing elements, linked lists
-    have a better efficiency in insertion and deletion of elements. Moreso, linked lists have better memory 
-    utilization as memory is allocated and deallocated in run-time as opposed to that of arrays that happen in 
+    have a better efficiency in insertion and deletion of elements. Moreso, linked lists have better memory
+    utilization as memory is allocated and deallocated in run-time as opposed to that of arrays that happen in
     compile-time.
 
     -The following is an implementation of a linked list, along with various functionalities.
@@ -59,7 +59,7 @@ class Linked_list(object):
         # gets an element at a certain position assuming the first position is 1
         """
             - Use two variables, one for the current node, and another for the count,
-            which will be incremented in each iteration, and count will be compared to position such that 
+            which will be incremented in each iteration, and count will be compared to position such that
             when count is equal to position, the value for the current node will be the target value.
         """
         if self.head:
@@ -85,7 +85,7 @@ class Linked_list(object):
             - There is need for three variables:
                 prev, which will be originally None
                 current, will originally be the head
-                count, will be compared to position, such that when position is equal to count, 
+                count, will be compared to position, such that when position is equal to count,
                 make the prev.next point to new element, and the new element's next be equal to the original prev.next
         """
         # inserting at any other position
@@ -124,7 +124,7 @@ class Linked_list(object):
         """
             - Return head.next as the new head if value for head is the same as value given.
             - Traverse the list such that, as long as current and current.next are not none:
-                - if current.next value is equal to the value, set the current.next to 
+                - if current.next value is equal to the value, set the current.next to
                 current.next.next
         """
         if self.head.value == value:
@@ -141,7 +141,7 @@ class Linked_list(object):
     def reverse_list(self):
         # should return the new head of the linked list
         """
-            - Variables needed include - prev (originally null), current (originally head), and 
+            - Variables needed include - prev (originally null), current (originally head), and
             in each iteration initiate a next_node value to hold the current.next for that instant. Traverse the
             list while moving each one step forward. Last step will have prev on the new head, so return it.
         """
