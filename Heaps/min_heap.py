@@ -31,3 +31,9 @@ class MinHeap:
         index -> index of the node.
         """
         return (index * 2) + 2
+
+    def has_parent(self, index: int) -> bool:
+        """
+        Return True if the node at index has a parent, False otherwise.
+        """
+        return self.get_parent_index(index) >= 0
