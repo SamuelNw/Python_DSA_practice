@@ -37,3 +37,10 @@ class MinHeap:
         Return True if the node at index has a parent, False otherwise.
         """
         return self.get_parent_index(index) >= 0
+
+    def has_left_child(self, index: int) -> bool:
+        """
+        Return True if the left child index is lesser than the
+        size (current num of elements).
+        """
+        return self.get_left_child_index(index) < self.size
