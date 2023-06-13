@@ -44,3 +44,9 @@ class MinHeap:
         size (current num of elements).
         """
         return self.get_left_child_index(index) < self.size
+
+    def has_right_child(self, index: int) -> bool:
+        """
+        Return True if the right child index is lesser than the size.
+        """
+        return self.get_right_child_index(index) < self.size
