@@ -108,7 +108,8 @@ class MinHeap:
         data = self.storage[0]
         self.storage[0] = self.storage[self.size - 1]
         self.size -= 1
-        self.iterative_heapify_down()
+        # self.iterative_heapify_down()
+        self.recursive_heapify_down(0)
         return data
 
     def iterative_heapify_down(self) -> None:
@@ -126,3 +127,20 @@ class MinHeap:
             else:
                 self.swap(index, smaller_child_idx)
             index = smaller_child_idx
+
+    def recursive_heapify_down(self, index: int) -> None:
+        """Heapify down recursively."""
+        smallest = index
+        if (
+            self.has_left_child(index) and
+            self.storage[smallest] > self.left_child(index)
+        ):
+            smallest = self.get_left_child_index(index)
+        if (
+            self.has_right_child(index) and
+            self.storage[smallest] > self.right_child(index)
+        ):
+            smallest = self.get_right_child_index(index)
+        if smallest != index:
+            self.swap(index, smallest)
+            self.recursive_heapify_down(smallest)
