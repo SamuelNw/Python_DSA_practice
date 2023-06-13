@@ -60,3 +60,9 @@ class MinHeap:
 
     def right_child(self, index: int) -> int:
         return self.storage[self.get_right_child_index(index)]
+
+    def is_full(self) -> bool:
+        """
+        Invoked just before insertion to check whether there is room.
+        """
+        return self.size == self.capacity
