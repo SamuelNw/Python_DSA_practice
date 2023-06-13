@@ -108,6 +108,7 @@ class MinHeap:
         data = self.storage[0]
         self.storage[0] = self.storage[self.size - 1]
         self.size -= 1
+        self.storage.pop()
         # self.iterative_heapify_down()
         self.recursive_heapify_down(0)
         return data
