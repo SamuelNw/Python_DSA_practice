@@ -72,3 +72,21 @@ class MinHeap:
         tmp = self.storage[index1]
         self.storage[index1] = self.storage[index2]
         self.storage[index2] = tmp
+
+    def insert(self, data: int) -> None:
+        """Insert data into the heap."""
+        if self.is_full():
+            raise Exception("Heap at full capacity. No insertion allowed.")
+        self.storage[self.size] = data
+        self.size += 1
+        self.iterative_heapify_up()
+
+    def iterative_heapify_up(self) -> None:
+        """Enforce the heap principle."""
+        idx = self.size - 1
+        while (
+            self.has_parent(idx) and
+            self.parent(idx) > self.storage[idx]
+        ):
+            self.swap(self.get_parent_index(idx), idx)
+            idx = self.get_parent_index(idx)
