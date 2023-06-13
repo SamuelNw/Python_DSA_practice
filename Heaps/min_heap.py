@@ -79,7 +79,8 @@ class MinHeap:
             raise Exception("Heap at full capacity. No insertion allowed.")
         self.storage[self.size] = data
         self.size += 1
-        self.iterative_heapify_up()
+        # self.iterative_heapify_up()
+        self.recursive_heapify_up(self.size - 1)
 
     def iterative_heapify_up(self) -> None:
         """Enforce the heap principle."""
@@ -90,3 +91,12 @@ class MinHeap:
         ):
             self.swap(self.get_parent_index(idx), idx)
             idx = self.get_parent_index(idx)
+
+    def recursive_heapify_up(self, index: int) -> None:
+        """Heapify recursively."""
+        if (
+            self.has_parent(index) and
+            self.parent(index) > self.storage[index]
+        ):
+            self.swap(self.get_parent_index(index), index)
+            self.recursive_heapify_up(self.get_parent_index(index))
