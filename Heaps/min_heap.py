@@ -66,3 +66,9 @@ class MinHeap:
         Invoked just before insertion to check whether there is room.
         """
         return self.size == self.capacity
+
+    def swap(self, index1: int, index2: int) -> None:
+        """Swap the data between the two given indexes."""
+        tmp = self.storage[index1]
+        self.storage[index1] = self.storage[index2]
+        self.storage[index2] = tmp
