@@ -50,3 +50,13 @@ class MinHeap:
         Return True if the right child index is lesser than the size.
         """
         return self.get_right_child_index(index) < self.size
+
+    # Get the actual node data
+    def parent(self, index: int) -> int:
+        return self.storage[self.get_parent_index(index)]
+
+    def left_child(self, index: int) -> int:
+        return self.storage[self.get_left_child_index(index)]
+
+    def right_child(self, index: int) -> int:
+        return self.storage[self.get_right_child_index(index)]
