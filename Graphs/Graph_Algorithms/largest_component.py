@@ -30,4 +30,4 @@ def explore_nodes(g: dict, src: int, visited: set) -> int:
     return nodes
 
 
-print(largest_component(uc_graph))
+print(largest_component(uc_graph))  # --> 5
