@@ -20,7 +20,7 @@ def count_islands(grid: List[list]) -> int:
     return count
 
 
-def explore(grid: List[list], row: str, col: str, visited: set) -> bool:
+def explore(grid: List[list], row: int, col: int, visited: set) -> bool:
     row_in_bounds = 0 <= row < len(grid)
     col_in_bounds = 0 <= col < len(grid[0])
 
