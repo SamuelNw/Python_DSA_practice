@@ -1,4 +1,4 @@
-# Graph represented as an adjacency dictionary
+# Undirected graph represented as an adjacency dictionary
 graph = {
     1: [2, 3, 4],
     2: [1, 5],
@@ -15,4 +15,15 @@ graph = {
     13: [9],
     14: [10],
     15: [11]
+}
+
+
+# Directed graph represented as an adjacency dictionary
+graph = {
+    1: [2, 3],
+    2: [4, 5],
+    3: [2, 6],
+    4: [6],
+    5: [4, 6],
+    6: [1]
 }
