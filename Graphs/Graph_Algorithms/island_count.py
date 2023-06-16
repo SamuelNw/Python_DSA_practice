@@ -1,0 +1,3 @@
+"""
+Return Number of Islands.
+"""
