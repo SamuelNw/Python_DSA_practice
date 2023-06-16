@@ -40,3 +40,12 @@ uc_graph = {
     1: [2],
     2: [1]
 }
+
+# connected undirected edges for distance
+sh_edges = [
+    ["W", "X"],
+    ["X", "Y"],
+    ["Z", "Y"],
+    ["Z", "V"],
+    ["W", "V"]
+]
