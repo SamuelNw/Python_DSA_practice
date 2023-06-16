@@ -18,3 +18,13 @@ graph_d = {
     'E': [],
     'F': []
 }
+
+# Edges for an undirected graph (cyclic)
+edges = [
+    ['A', 'B'],
+    ['B', 'C'],
+    ['C', 'D'],
+    ['D', 'E'],
+    ['E', 'F'],
+    ['F', 'A']
+]
