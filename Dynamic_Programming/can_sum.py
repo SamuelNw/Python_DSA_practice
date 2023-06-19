@@ -16,11 +16,11 @@ def can_sum(numbers, target, memo={}):
     for num in numbers:
         rem = target - num
         if (can_sum(numbers, rem, memo)) == True:
-            memo[rem] = True
+            memo[target] = True
             return True
 
     memo[target] = False
     return False
 
 
-print(can_sum([14, 7], 28))
+print(can_sum([14, 7], 300))
