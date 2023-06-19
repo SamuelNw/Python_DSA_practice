@@ -16,5 +16,19 @@ def grid_traveller(m: int, n: int, memo={}) -> int:
     return memo[(m, n)]
 
 
+# OR:
+def grid_traveller_2(m, n):
+    row = [1] * n
+
+    for i in range(m - 1):
+        new_row = [1] * n
+        for j in range(n - 2, -1, -1):
+            new_row[j] = new_row[j + 1] + row[j]
+        row = new_row
+
+    return row[0]
+
+
 # returns fast
 print(grid_traveller(250, 350))
+print(grid_traveller_2(250, 350))
