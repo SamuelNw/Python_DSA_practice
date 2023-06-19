@@ -5,7 +5,7 @@ be used as many times as possible.
 """
 
 
-def can_sum(numbers, target, memo={}):
+def can_sum(numbers: list, target: int, memo={}) -> bool:
     if target in memo:
         return memo[target]
     if (target == 0):
