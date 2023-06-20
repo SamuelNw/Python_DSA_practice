@@ -46,5 +46,5 @@ def all_construct(target: str, wordBank: List[list], memo={}) -> List[list]:
 
 
 print(all_construct("purple", ["purp", "le", "p", "purpl", "ur"]))
-print(all_construct("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      ["aaa", "a", "aa", "aaaaaaa", "aaaaa"]))
+# print(all_construct("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaazz",
+#       ["aaa", "a", "aa", "aaaaaaa", "aaaaa"]))
