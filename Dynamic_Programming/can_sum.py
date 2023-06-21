@@ -23,4 +23,19 @@ def can_sum(numbers: list, target: int, memo={}) -> bool:
     return False
 
 
+# Can_sum tabulation method:
+def can_sum_tab(numbers: list, target: int) -> bool:
+    table = [False] * (target + 1)
+    table[0] = True
+
+    for i in range(target):
+        if table[i] == True:
+            for num in numbers:
+                if (i + num) <= target:
+                    table[i+num] = True
+
+    return table[target]
+
+
 print(can_sum([14, 7], 300))
+print(can_sum_tab([14, 7], 300))
