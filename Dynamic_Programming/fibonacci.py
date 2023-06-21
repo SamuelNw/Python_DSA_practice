@@ -15,5 +15,20 @@ def fib(n: int, memo={}) -> int:
     return memo[n]
 
 
+# tabulation solution:
+def fib_tab(n: int) -> int:
+    table = [0] * (n + 1)
+    table[1] = 1
+
+    for i in range(n):
+        if i+1 <= n:
+            table[i+1] += table[i]
+        if i+2 <= n:
+            table[i+2] += table[i]
+
+    return table[n]
+
+
 # Computes and returns asap.
 print(fib(999))
+print(fib_tab(999))
