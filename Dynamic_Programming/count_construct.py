@@ -24,6 +24,24 @@ def count_construct(wordBank: list, target: str, memo={}) -> int:
     return res
 
 
-print(count_construct(["ab", "abc", "cd", "def", "abcd"], "abcdef"))
+def count_construct_tab(wordBank: list, target: str) -> int:
+    table = [0] * (len(target) + 1)
+    table[0] = 1
+
+    for i in range(len(table)):
+        if table[i] != 0:
+            for word in wordBank:
+                if target[i:i+len(word)] == word:
+                    table[i + len(word)] += table[i]
+
+    return table[-1]
+
+
+print(count_construct(["ab", "abc", "cd", "def", "abcd"], "abcdef"))    # -> 1
 print(count_construct(["e", "eee", "eeeeee", "eeeeeeeee",
-      "eeeeeeeeeeeeeeeeee"], "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef"))
+      "eeeeeeeeeeeeeeeeee"], "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef"))  # -> 0
+
+print(count_construct_tab(
+    ["ab", "abc", "cd", "def", "abcd"], "abcdef"))     # -> 1
+print(count_construct_tab(["e", "eee", "eeeeee", "eeeeeeeee",
+      "eeeeeeeeeeeeeeeeee"], "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef"))   # -> 0
