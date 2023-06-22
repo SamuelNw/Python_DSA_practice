@@ -30,8 +30,7 @@ def can_construct_tab(string: str, wordBank: list) -> bool:
         if table[i] == True:
             for word in wordBank:
                 if string[i: i + len(word)] == word:
-                    if i + len(word) <= len(table):
-                        table[i+len(word)] = True
+                    table[i+len(word)] = True
 
     return table[-1]
 
