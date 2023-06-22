@@ -17,7 +17,7 @@ def best_sum(numbers: list, target: int, memo={}) -> bool:
 
     for num in numbers:
         rem = target - num
-        res = best_sum(numbers, rem)
+        res = best_sum(numbers, rem, memo)
 
         if res != None:
             comb = res + [num]
@@ -29,4 +29,4 @@ def best_sum(numbers: list, target: int, memo={}) -> bool:
     return shortest
 
 
-print(best_sum([7, 14], 150))
+print(best_sum([7, 14], 400))
