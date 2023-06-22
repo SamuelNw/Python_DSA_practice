@@ -22,4 +22,19 @@ def can_construct(string: str, wordBank: list, memo={}) -> bool:
     return False
 
 
+def can_construct_tab(string: str, wordBank: list) -> bool:
+    table = [False] * (len(string) + 1)
+    table[0] = True
+
+    for i in range(len(table)):
+        if table[i] == True:
+            for word in wordBank:
+                if string[i: i + len(word)] == word:
+                    if i + len(word) <= len(table):
+                        table[i+len(word)] = True
+
+    return table[-1]
+
+
 print(can_construct("abcdef", ["ab", "abc", "cd", "def", "abcd"]))
+print(can_construct_tab("abcdef", ["ab", "abc", "cd", "def", "abcd"]))
