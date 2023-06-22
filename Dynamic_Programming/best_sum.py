@@ -29,4 +29,19 @@ def best_sum(numbers: list, target: int, memo={}) -> bool:
     return shortest
 
 
-print(best_sum([7, 14], 400))
+def best_sum_tab(numbers: list, target: int) -> list:
+    table = [None] * (target + 1)
+    table[0] = []
+
+    for i in range(target):
+        if table[i] != None:
+            for num in numbers:
+                comb = table[i] + [num]
+                if (i + num <= target) and (not (table[i+num]) or len(comb) < len(table[i + num])):
+                    table[i+num] = comb
+
+    return table[target]
+
+
+print(best_sum([2, 3, 5], 8))   # -> [5, 3]
+print(best_sum_tab([2, 3, 5], 8))   # -> [5, 3]
