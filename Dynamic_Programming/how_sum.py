@@ -24,4 +24,18 @@ def how_sum(numbers: list, target: int, memo={}) -> list:
     return None
 
 
+def how_sum_tab(numbers: list, target: int) -> list:
+    table = [None] * (target + 1)
+    table[0] = []
+
+    for i in range(target):
+        if table[i] != None:
+            for num in numbers:
+                if i + num <= target:
+                    table[i+num] = table[i] + [num]
+
+    return table[target]
+
+
 print(how_sum([7, 14], 300))
+print(how_sum_tab([5, 4, 3], 7))    # [4, 3]
