@@ -20,6 +20,7 @@ Output:
 ]
 """
 
+import numpy as np
 from typing import List
 
 
@@ -45,6 +46,22 @@ def all_construct(target: str, wordBank: List[list], memo={}) -> List[list]:
     return memo[target]
 
 
+def all_construct_tab(target: str, wordBank: List[list]) -> List[list]:
+    table = [[]] * (len(target) + 1)
+    table[0] = [[]]
+
+    for i in range(len(table)):
+        for word in wordBank:
+            if target[i: i + len(word)] == word:
+                combinations = list(
+                    map(lambda lst: lst + [word], table[i]))
+                for value in combinations:
+                    table[i+len(word)].append(value)
+
+    return set(table[-1])
+
+
 print(all_construct("purple", ["purp", "le", "p", "purpl", "ur"]))
+print(all_construct_tab("purple", ["purp", "le", "p", "purpl", "ur"]))
 # print(all_construct("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaazz",
 #       ["aaa", "a", "aa", "aaaaaaa", "aaaaa"]))
