@@ -29,6 +29,13 @@ def grid_traveller_2(m, n):
     return row[0]
 
 
+"""
+Complexity analysis (Both methods):
+TC -> O(m * n)
+SC -> O(m + n)
+"""
+
+
 # returns fast
 print(grid_traveller(250, 350))
 print(grid_traveller_2(250, 350))

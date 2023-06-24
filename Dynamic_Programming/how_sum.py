@@ -37,5 +37,16 @@ def how_sum_tab(numbers: list, target: int) -> list:
     return table[target]
 
 
+"""
+Complexity analysis (Both methods):
+TC -> O(m * m * n)
+SC -> O(m * m)
+
+where:
+m = target
+n = length of numbers array.
+"""
+
+
 print(how_sum([7, 14], 300))
 print(how_sum_tab([5, 4, 3], 7))    # [4, 3]

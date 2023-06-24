@@ -35,5 +35,16 @@ def can_construct_tab(string: str, wordBank: list) -> bool:
     return table[-1]
 
 
+"""
+Complexity analysis (Both methods):
+TC -> O(m * m * n)
+SC -> O(m)
+
+where:
+m = target
+n = length of wordBank array.
+"""
+
+
 print(can_construct("abcdef", ["ab", "abc", "cd", "def", "abcd"]))
 print(can_construct_tab("abcdef", ["ab", "abc", "cd", "def", "abcd"]))

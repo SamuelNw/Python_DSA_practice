@@ -47,18 +47,28 @@ def all_construct(target: str, wordBank: List[list], memo={}) -> List[list]:
 
 
 def all_construct_tab(target: str, wordBank: List[list]) -> List[list]:
-    table = [[]] * (len(target) + 1)
+    table = [[] for _ in range(len(target) + 1)]
     table[0] = [[]]
 
     for i in range(len(table)):
         for word in wordBank:
-            if target[i: i + len(word)] == word:
-                combinations = list(
-                    map(lambda lst: lst + [word], table[i]))
-                for value in combinations:
-                    table[i+len(word)].append(value)
+            if target[i:i + len(word)] == word:
+                for arr in table[i]:
+                    new_arr = arr + [word]
+                    table[i+len(word)].append(new_arr)
 
-    return set(table[-1])
+    return table[-1]
+
+
+"""
+Complexity analysis (Both methods):
+TC -> O(n ^ m)
+SC -> O(n ^ m)
+
+where:
+m = target
+n = length of wordBank array.
+"""
 
 
 print(all_construct("purple", ["purp", "le", "p", "purpl", "ur"]))

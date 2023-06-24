@@ -43,5 +43,15 @@ def best_sum_tab(numbers: list, target: int) -> list:
     return table[target]
 
 
+"""
+Complexity analysis (Both methods):
+TC -> O(m * m * n)
+SC -> O(m * m)
+
+where:
+m = target
+n = length of numbers array.
+"""
+
 print(best_sum([2, 3, 5], 8))   # -> [5, 3]
 print(best_sum_tab([2, 3, 5], 8))   # -> [5, 3]

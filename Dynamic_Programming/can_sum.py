@@ -37,5 +37,16 @@ def can_sum_tab(numbers: list, target: int) -> bool:
     return table[target]
 
 
+"""
+Complexity analysis (Both methods):
+TC -> O(m * n)
+SC -> O(m)
+
+where:
+m = target
+n = length of numbers array.
+"""
+
+
 print(can_sum([14, 7], 300))
 print(can_sum_tab([14, 7], 300))

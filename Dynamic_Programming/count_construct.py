@@ -37,6 +37,17 @@ def count_construct_tab(wordBank: list, target: str) -> int:
     return table[-1]
 
 
+"""
+Complexity analysis (Both methods):
+TC -> O(m * m * n)
+SC -> O(m)
+
+where:
+m = target
+n = length of wordBank array.
+"""
+
+
 print(count_construct(["ab", "abc", "cd", "def", "abcd"], "abcdef"))    # -> 1
 print(count_construct(["e", "eee", "eeeeee", "eeeeeeeee",
       "eeeeeeeeeeeeeeeeee"], "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef"))  # -> 0

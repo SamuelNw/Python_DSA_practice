@@ -29,6 +29,13 @@ def fib_tab(n: int) -> int:
     return table[n]
 
 
+"""
+Complexity analysis (Both methods):
+TC -> O(n)
+SC -> O(n)
+"""
+
+
 # Computes and returns asap.
 print(fib(999))
 print(fib_tab(999))
