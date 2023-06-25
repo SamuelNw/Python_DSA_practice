@@ -161,6 +161,16 @@ class Linked_list(object):
 
         print(f"New head is {prev.value}")
 
+    def rec_reverse(self):
+        def rvs(head, prev=None):
+            if not head:
+                return prev
+            next_node = head.next
+            head.next = prev
+            return rvs(next_node, head)
+
+        return rvs(self.head)
+
 
 # Instantiating nodes.
 node_1 = Node("a")
