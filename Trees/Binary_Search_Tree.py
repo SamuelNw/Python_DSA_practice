@@ -229,7 +229,35 @@ class BST(object):
         print(root.value)
         self._in_order(root.right)
 
+    # (2b.) In-order Iterative
+
+    def in_order_iterative(self):
+        if not self.root:
+            return None
+        else:
+            self._in_order_iter(self.root)
+
+    def _in_order_iter(self, root: Node) -> list:
+        if not root:
+            return None
+
+        stack = []
+        current = root
+        res = []
+
+        while stack or current:
+            while current:
+                stack.append(current)
+                current = current.next
+
+            current = stack.pop()
+            res.append(current.val)
+            current = current.right
+
+        return res
+
     # (2c.) Post-order Recursive
+
     def post_order(self):
         if not self.root:
             return None
@@ -264,8 +292,8 @@ class BST(object):
                 return root.left
             """
             Info: The root here, has both right and left children.
-            Trick is to replace the root at this point (current) with NEXT MINIMUM 
-            value from current.right. If current.right has no children, that is our 
+            Trick is to replace the root at this point (current) with NEXT MINIMUM
+            value from current.right. If current.right has no children, that is our
             node, if it does, the left-most node from here, is the node we are looking for.
             """
             pointer = root.right
