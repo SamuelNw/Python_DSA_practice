@@ -23,7 +23,7 @@ def print_board(board: List[List[int]]) -> None:
             if j % 3 == 0:
                 print(" | ", end="")
             if j == 8:
-                print(board[i][j])
+                print(str(board[i][j]) + " | ")
             else:
                 print(str(board[i][j]) + " ", end="")
 
