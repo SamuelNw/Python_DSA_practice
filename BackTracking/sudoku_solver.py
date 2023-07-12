@@ -14,6 +14,26 @@ board = [
 ]
 
 
+def solve(b: List[List[int]]) -> None:
+    """Use backtracking to fill in all board positions."""
+    find = find_empty_spot(b)
+    if not find:
+        return True
+    else:
+        row, col = find
+
+    for choice in range(1, 10):
+        if valid(b, (row, col), choice):
+            b[row][col] = choice
+
+            if solve(b):
+                return True
+
+            b[row][col] = 0
+
+    return False
+
+
 def valid(b: List[List[int]], pos: Tuple[int], num: int) -> bool:
     """Validate our choice as per the current - row, column, and 3 * 3 box."""
 
@@ -60,3 +80,9 @@ def find_empty_spot(board: List[List[int]]) -> Tuple[int]:
         for j in range(len(board[0])):
             if board[i][j] == 0:
                 return (i, j)
+
+
+print_board(board)
+solve(board)
+print(("\n" * 2) + "*****    SOLVED BOARD    *******" + ("\n" * 2))
+print_board(board)
