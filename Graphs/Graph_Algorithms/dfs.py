@@ -6,7 +6,7 @@ from blueprint import graph_d
 
 
 # Basic directed graph dfs traversal.
-def iterative_dfs(g, source):
+def iterative_dfs(g: dict, source: str):
     stack = [source]
 
     while stack:
@@ -16,7 +16,7 @@ def iterative_dfs(g, source):
             stack.append(neighbor)
 
 
-def recursive_dfs(g, source):
+def recursive_dfs(g: dict, source: str):
     print(source)
 
     for neighbor in g[source]:

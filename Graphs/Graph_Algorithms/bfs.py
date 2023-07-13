@@ -6,7 +6,7 @@ import collections
 from blueprint import graph_d
 
 
-def bfs(g, source):
+def bfs(g: dict, source: str):
     q = collections.deque()
     q.append(source)
 
