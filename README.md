@@ -26,7 +26,7 @@ The following algorithms are covered in this repository:
 
 * Sorting Algorithms
 * Searching Algorithms
-* Recursion
+* Recursion and Backtracking
 * Dynamic Programming
 
 Each algorithm is explained in detail, including its purpose, algorithmic approach, and time complexity analysis. Python implementations are provided for each algorithm, along with sample inputs and expected outputs.
