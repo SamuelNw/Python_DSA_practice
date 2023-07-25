@@ -52,4 +52,22 @@ class WordDictionary:
         word or false otherwise. word may contain dots '.' where dots can
         be matched with any letter.
         """
-        pass
+        def dfs(j: int, root: TrieNode) -> bool:
+            current = root
+
+            for i in range(j, len(target)):
+                c = target[i]
+
+                if c == ".":
+                    for child in current.children.values():
+                        if (dfs(i + 1, child)):
+                            return True
+                    return False
+                else:
+                    if c not in current.children:
+                        return False
+                    current = current.children[c]
+
+            return True
+
+        return dfs(0, self.root)
