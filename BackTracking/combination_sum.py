@@ -15,10 +15,10 @@ up to target is less than 150 combinations for the given input.
 from typing import List
 
 
-def combinationSum(nums: list, target: int) -> List[List[int]]:
+def combinationSum(nums: List[int], target: int) -> List[List[int]]:
     res = []
 
-    def dfs(arr: list, cur_index: int, cur_sum: int, cur_combination: List[int], target: int) -> None:
+    def dfs(arr: List[int], cur_index: int, cur_sum: int, cur_combination: List[int], target: int) -> None:
         if cur_sum == target:
             res.append(cur_combination)
             return
@@ -34,6 +34,30 @@ def combinationSum(nums: list, target: int) -> List[List[int]]:
     return res
 
 
+# OR
+def combinationSumTwo(nums: List[int], target: int) -> List[List[int]]:
+    res = []
+
+    def dfs(i: int, cur_combination: List[int], total: int) -> None:
+        if total == target:
+            res.append(cur_combination[:])
+            return
+        if i >= len(nums) or total > target:
+            return
+
+        # Decision to add nums[i]
+        cur_combination.append(nums[i])
+        dfs(i, cur_combination, total + nums[i])
+        cur_combination.pop()
+
+        # Decision to not add nums[i]
+        dfs(i + 1, cur_combination, total)
+
+    dfs(0, [], 0)
+
+    return res
+
+
 """
 Complexity Analysis:
 TC -> O(2 ^ n) where n is len(nums)
@@ -41,5 +65,6 @@ SC -> O(2 ^ n)
 """
 
 
-# Returns -> [[2, 2, 3], [3, 4], [7]]
+# Both return -> [[2, 2, 3], [3, 4], [7]]
 print(combinationSum([2, 3, 4, 7], 7))
+print(combinationSumTwo([2, 3, 4, 7], 7))
