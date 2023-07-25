@@ -68,6 +68,6 @@ class WordDictionary:
                         return False
                     current = current.children[c]
 
-            return True
+            return current.end_of_word
 
         return dfs(0, self.root)
