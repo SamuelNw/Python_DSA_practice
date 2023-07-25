@@ -248,7 +248,7 @@ class BST(object):
         while stack or current:
             while current:
                 stack.append(current)
-                current = current.next
+                current = current.left
 
             current = stack.pop()
             res.append(current.val)
