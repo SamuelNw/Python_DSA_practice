@@ -7,6 +7,7 @@ INFO: Implementation of a Binary Search Tree.
     - Deletion of nodes.
 """
 import collections
+from typing import List
 
 # TreeNode class:
 
@@ -256,7 +257,7 @@ class BST(object):
 
         return res
 
-    # (2c.) Post-order Recursive
+    # (3a.) Post-order Recursive
 
     def post_order(self):
         if not self.root:
@@ -272,6 +273,33 @@ class BST(object):
         self._post_order(root.left)
         self._post_order(root.right)
         print(root.value)
+
+    # (3b.) Post-order Iterative
+
+    def post_order_iterative(self):
+        if not self.root:
+            return None
+        else:
+            self.post_order_iter(self.root)
+
+    def post_order_iter(self, root: Node) -> List[int]:
+        res = []
+        stack, visited = [root], [False]
+
+        while stack:
+            current, v = stack.pop(), visited.pop()
+            if current:
+                if v:
+                    res.append(current.val)
+                else:
+                    stack.append(current)
+                    visited.append(True)
+                    stack.append(current.right)
+                    visited.append(False)
+                    stack.append(current.left)
+                    visited.append(False)
+
+        return res
 
 # DELETING NODES ON A TREE
     def delete_node(self, node):
